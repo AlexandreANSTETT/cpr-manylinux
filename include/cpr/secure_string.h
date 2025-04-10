@@ -11,7 +11,7 @@ namespace cpr::util {
 // deallocating the memory, so as to not leave secrets in unallocated memory
 // sections.
 template <typename T>
-struct SecureAllocator : private std::allocator<T> {
+struct SecureAllocator : public std::allocator<T> {
     template <typename U>
     friend struct SecureAllocator;
     SecureAllocator() = default;
